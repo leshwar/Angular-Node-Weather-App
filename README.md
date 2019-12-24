@@ -1,5 +1,8 @@
 # Angular-Node-Weather-App
 
+https://www.youtube.com/watch?v=FVUoo_WO_Ho
+https://www.youtube.com/watch?v=1LnX7_5y-ds&t=2s
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.15.
 
 ## Development server
