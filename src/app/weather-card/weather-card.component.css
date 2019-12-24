@@ -1,0 +1,43 @@
+.card-container {
+    background-color: #678AA0;
+    box-shadow: 3px 3px 10px black;
+}
+.required_field {
+    color: red;
+}
+mat-option {
+    background-color: white;
+    color: black;
+}
+mat-option:hover {
+    background: #FAFAFA !important;
+  }
+mat-autocomplete {
+    background-color: white;
+    color: black;    
+}
+.default {
+    background-color: white;
+    border-color: #343a40;
+}
+.active {
+    background-color: #678AA0;
+    border-color: #343a40;
+    color: white;
+}
+.btn.btn-result:active {
+    background-color: #678AA0;
+    border-color: #343a40;
+    color: white;
+}
+
+.btn-submit {
+    background-color: white;
+    border-color: #343a40;
+    color: grey;
+}
+.btn-clear {
+    background-color: white;
+    border-color: #343a40;
+    color: grey;
+}

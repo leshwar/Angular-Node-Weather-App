@@ -1,0 +1,153 @@
+.card-body {
+    background-color: #A1CEED;
+}
+.nav-link {
+    text-decoration:none;
+    color: black;
+}
+.degree {
+    width: 11px;
+    height: 11px;
+    position: absolute;
+}
+.card_icons {
+    width: 40px;
+    height: 40px;
+}
+.round-card {
+    border-radius: 10px;
+}
+.header-color {
+    background-color: #678AA0;
+}
+.body-color {
+    background-color: #A1CEED;
+}
+.modal-dialog {
+    max-width: 450px;
+}
+.city_text {
+    font-size: 25px
+}
+.temp_text {
+    font-size: 35px
+}
+.degree_modal {
+    width: 11px;
+    height: 11px;
+    position: absolute;
+}
+.time-zone-text {
+    color: #294C4C;
+}
+#fav_table.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #A1CEED;
+}
+#fav_table.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #678AA0;
+}
+#fav_table>thead {
+    background-color: #678AA0;
+}
+.temp-font {
+    font-size: 45px;
+}
+
+.no-style {
+    border: none;
+    padding: 0;
+    background: none;
+}
+.button-color {
+    color: #0000EE;
+}
+/* Responsive CSS for weather icons */
+.card_icons {
+    width: 40px;
+    height: 40px;
+}
+.seal_icon {
+    width: 170px;
+    height: 170px;
+}
+/* xs */
+@media (min-width: 100px) {
+    .card_icons {
+        width: 20px;
+        height: 20px;
+    }
+    .seal_icon {
+        width: 150px;
+        height: 150px;
+    }
+    .card_text {
+        font-size: 22px;
+    }
+    .col-xs-4 {
+        padding: 0px;
+        width: unset;
+    }
+    .col-xs-8 {
+        padding: 0px;
+        width: unset;
+    }
+    .temp-font {
+        font-size: 35px
+    }
+    .card-icons-text{
+        font-size: 14px;
+    }
+    .col-2 {
+        padding: 0px;
+        width: unset;
+    }
+    .modal-padding {
+        padding: 15px;
+        width: unset;
+    }
+    .modal_image {
+        padding-top: 35px;
+    }
+}
+/* sm */
+@media (min-width: 768px) {
+    .card_icons {
+        width: 20px;
+        height: 20px;
+    }
+    .seal_icon {
+        width: 150px;
+        height: 150px;
+    }
+    .card_text {
+        font-size: 32px;
+    }
+}
+/* md */
+@media (min-width: 992px) {
+    .card_icons {
+        width: 40px;
+        height: 40px;
+    }
+    .seal_icon {
+        width: 150px;
+        height: 150px;
+    }
+    .card_text {
+        font-size: 32px;
+    }
+}
+/* lg */
+@media (min-width: 1200px) {
+    .card_icons {
+        width: 40px;
+        height: 40px;
+    }
+    .seal_icon {
+        width: 170px;
+        height: 170px;
+    }
+    .card_text {
+        font-size: 32px;
+    }
+}

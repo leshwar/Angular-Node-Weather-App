@@ -1,0 +1,278 @@
+
+
+<!-- Code for Invalid Address Tab -->
+<div class = "container pt-5">
+    <div class="alert alert-warning" role="alert" *ngIf="invalid_address != 'False'">
+        Invalid Address.
+    </div>
+</div>
+<div #results_tab>
+    <div id = "results-tab" class = "container pt-5 form" *ngIf="message != 'dummy_data' && invalid_address == 'False'">
+        <!-- Code of the NavBar -->
+        <ul class="col-md-10 container vertical-center nav nav-tabs">
+            <li class="nav-item">
+                <a #current data-toggle="tab" href = "#current" class="nav-link active" (click)="onNavClick('current')">Current</a>
+            </li>
+            <li class="nav-item">
+                <a #hourly data-toggle="tab" href = "#hourly" class="nav-link" (click)="onNavClick('hourly')">Hourly</a>
+            </li>
+            <li class="nav-item">
+                <a #weekly data-toggle="tab" href = "#weekly" class="nav-link" (click)="onNavClick('weekly')">Weekly</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a href="https://twitter.com/intent/tweet?text=The current temperature at {{ city_fetched }} is {{ message['currently']['temperature'] | round }} &deg; F. The weather conditions are {{ message['currently']['summary'] }}.%0A %23CSCI571 WeatherSearch" target="_blank"><img src = "https://csci571.com/hw/hw8/Images/Twitter.png" width="40px" height="40px"></a>
+                <button *ngIf="!checkIfFavSaved()" class = "btn btn-light align-content-between ml-3 no-style" (click)="saveFav()"><i class="material-icons">star_border</i></button>
+                <button *ngIf="checkIfFavSaved()" class = "btn btn-light align-content-between ml-3 no-style" (click)="remFav()"><i class="material-icons" style="color:goldenrod">star</i></button>
+            </li>
+            
+        </ul>
+        <br>
+        
+        <!-- Code for Current Tab -->
+        <div class = "container vertical-center tab-pane " id = "current" *ngIf="show_current">
+            <div class = "row">
+                <div class = "col"></div>
+                <div class = "col-md-7 col-xs-9">
+                    <div class="entire-card card card-container border-dark mb-3 round-card">
+                        <div class="card-body border-dark round-card">
+                            <div class = "card-text ml-4">
+                                <div class = "row">
+                                    <div class = "col-md-7 col-xs-4">
+                                        <h1 class="card_text"><small>{{ city_fetched }}</small></h1>
+                                        <h1 class="card_text time-zone-text"><small>{{ message['timezone'] }}</small></h1>
+                                        <div class="pt-4">
+                                            <h1 class="card_text"><small><span class = "temp-font">{{ message['currently']['temperature'] | round }}</span><img class = "degree mt-2 ml-2" src = "https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png"> <span class = "ml-4 temp-font">F</span></small></h1>
+                                        </div>
+                                        <div class="pt-3 pb-2">
+                                            <h3 class="card_text"><small>{{ message['currently']['summary'] }}</small></h3>
+                                        </div>
+                                    </div>
+                                    <div class = "col-md-5 col-xs-8 pt-5">
+                                        <!-- State Image -->
+                                        <img class = "seal_icon" width="170px" height="170px" [src] = "state_url" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Code of that needs to be added -->
+                            <div class = "row text-center pt-4">
+                                <!-- Humidity -->
+                                <div *ngIf="message['currently']['humidity'] != 'NA'" class = "col-2" placement="top" ngbTooltip="Humidity">
+                                    <img class = "card_icons" src = "https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-16-512.png">
+                                    <br>
+                                    <span class = "card-icons-text">{{ message['currently']['humidity'] }}</span>
+                                </div>
+                                <!-- Pressure -->
+                                <div *ngIf="message['currently']['pressure'] != 'NA'" class = "col-2" placement="top" ngbTooltip="Pressure">
+                                    <img class = "card_icons" src = "https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-512.png">
+                                    <br>
+                                    <span class = "card-icons-text">{{ message['currently']['pressure'] }}</span>
+                                </div>
+                                <!-- Wind Speed -->
+                                <div *ngIf="message['currently']['windSpeed'] != 'NA'" class = "col-2" placement="top" ngbTooltip="Wind Speed">
+                                    <img class = "card_icons" src = "https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-27-512.png">
+                                    <br>
+                                    <span class = "card-icons-text">{{ message['currently']['windSpeed'] }}</span>
+                                </div>
+                                <!-- Visibility -->
+                                <div *ngIf="message['currently']['visibility'] != 'NA'" class = "col-2" placement="top" ngbTooltip="Visibility">
+                                    <img class = "card_icons" src = "https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-30-512.png">
+                                    <br>
+                                    <span class = "card-icons-text">{{ message['currently']['visibility'] }}</span>
+                                </div>
+                                <!-- Cloud Cover -->
+                                <div *ngIf="message['currently']['cloudCover'] != 'NA'" class = "col-2" placement="top" ngbTooltip="Cloud Cover">
+                                    <img class = "card_icons" src = "https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-28-512.png">
+                                    <br>
+                                    <span class = "card-icons-text">{{ message['currently']['cloudCover'] }}</span>
+                                </div>
+                                <!-- Ozone -->
+                                <div *ngIf="message['currently']['ozone'] != 'NA'" class = "col-2" placement="top" ngbTooltip="Ozone">
+                                    <img class = "card_icons" src = "https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-24-512.png">
+                                    <br>
+                                    <span class = "card-icons-text">{{ message['currently']['ozone'] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col"></div>
+            </div>
+        </div>
+        
+        <!-- Code for Hourly Tab -->
+        <div class = "tab-pane pt-5" id = "hourly" *ngIf="show_hourly">
+            <!-- Code for the Select Option in Hourly Tab -->
+            <div class = "row">
+                <div class = "col-md-5">
+                    <select class="form-control browser-default custom-select" name = "hourly_select" id = "hourly_select" (change)= "selectItemChange()" [formControl]="hourly_select" ngModel>
+                        <option value = "" selected="selected">Temperature</option>
+                        <option value = "pressure">Pressure</option>
+                        <option value = "humidity">Humidity</option>
+                        <option value = "ozone">Ozone</option>
+                        <option value = "visibility">Visibility</option>
+                        <option value = "windspeed">Wind Speed</option>
+                    </select>
+                </div>
+                <div class = "col"></div>
+                <div class = "col"></div>
+            </div>
+            <!-- Code for Hourly Charts -->
+            <div class = "col-md-10 container vertical-center temperature" *ngIf="temperature">
+                <canvas baseChart
+                    id = "myChart"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="tempChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                </canvas>
+            </div>
+
+            <div class = "col-md-10 container vertical-center pressure" *ngIf="pressure">
+                <canvas baseChart
+                    id = "myChart"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="preChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                </canvas>
+            </div>
+
+            <div class = "col-md-10 container vertical-center humidity" *ngIf="humidity">
+                <canvas baseChart
+                    id = "myChart"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="humChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                </canvas>
+            </div>
+
+            <div class = "col-md-10 container vertical-center ozone" *ngIf="ozone">
+                <canvas baseChart
+                    id = "myChart"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="ozoChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                </canvas>
+            </div>
+
+            <div class = "col-md-10 container vertical-center visibility" *ngIf="visibility">
+                <canvas baseChart
+                    id = "myChart"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="visChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                </canvas>
+            </div>
+
+            <div class = "col-md-10 container vertical-center windspeed" *ngIf="windspeed">
+                <canvas baseChart
+                    id = "myChart"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="winChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                </canvas>
+            </div>
+        </div>
+
+        <!-- Code for Weekly Tab -->
+        <div id = "weekly" class = "tab-pane">
+            <div #chartContainer class="col-md-11" id="chartContainer" style="height: 300px; width: 100%; margin-left:auto;margin-right:auto; display: none;"></div>
+        </div>
+
+        <!-- Code for Modal Dialog -->
+        <button #modal_button id = "modal_button" type="button" [hidden] = "true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
+
+        <div id="myModal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-width" role="document">
+                <div class="modal-content">
+                    <div class="modal-header header-color">
+                        <h5 class="modal-title" id="exampleModalLabel"> {{ modal_date }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click) = "closeDialog()">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body body-color">
+                        <div class = "row">
+                            <div class = "col-md-6 col-xs-3 modal-padding pr-5 ml-2">
+                                <span class = "city_text">{{ modal_city }}</span><br>
+                                <div class="mt-2">
+                                    <span class = "temp_text pt-2">{{ modal_temperature | round}}<img class = "degree_modal" src = "https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png"><span class = "ml-4">F</span></span><br>
+                                </div>
+                                {{ modal_summary }}<br>
+                            </div>
+                            <div class = "col-md-5 col-xs-9 modal-padding pl-5 text-center modal_image">
+                                <img [src] = "modal_icon" width = '80px' height = '80px'/>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class = "row">
+                            <div class = "col-md-6"></div>
+                            <div class = "col-md-6">
+                                Precipitation: {{ modal_precipitation }} <br>
+                                Chance of Rain: {{ modal_chance_of_rain }} %<br>
+                                Wind Speed: {{ modal_wind_speed }} mph<br>
+                                Humidity: {{ modal_humidity }} %<br>
+                                Visibility: {{ modal_visibility }} miles <br> 
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+
+
+<!-- Code for Favourites Tab -->
+<div class = "container pt-5 table-responsive-sm">
+    <div *ngIf="favourites_clicked == 'false'">
+        <div *ngIf = "setResultsBack()">
+
+        </div>
+    </div>
+    <div *ngIf="favourites_clicked == 'true'">
+        <div *ngIf = "setFavVariable()">
+            <table class="table table-striped text-center" id="fav_table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Favorites</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of favourites_data; let i = index" >
+                        <td *ngIf = "splitItem(item)" >{{ i+1 }}</td>
+                        <td><img [src] = "temp_split[0]" width = '60px' height = '60px' ></td>
+                        <td><button class = "btn button-color" (click) = "callResults(item)" placement="bottom" [ngbTooltip]="temp_split[1]">{{ temp_split[1] }}</button></td>
+                        <td>{{ temp_split[2] }}</td>
+                        <td><button class = "btn btn-light align-content-between ml-3" (click)="removeFav(i)"><i class="material-icons" style="color:goldenrod">delete</i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf = "!setFavVariable()">
+            <div class="alert alert-warning" role="alert">
+                No Records.
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="message == 'dummy_data'">
+    <div *ngIf="setDefaults()">
+
+    </div>
+</div>
