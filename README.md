@@ -1,7 +1,14 @@
 # Angular-Node-Weather-App
 
+
+## Documentation for the Application built
+https://github.com/leshwar/Angular-Node-Weather-App/blob/master/Angular-Node-Weather-App-Demo-Description.pdf
+
+## Video Demo for the Application
 https://www.youtube.com/watch?v=FVUoo_WO_Ho
 https://www.youtube.com/watch?v=1LnX7_5y-ds&t=2s
+
+# Deployment Details
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.15.
 
