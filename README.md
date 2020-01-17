@@ -6,6 +6,7 @@ https://github.com/leshwar/Angular-Node-Weather-App/blob/master/Angular-Node-Wea
 
 ## Video Demo for the Application
 https://www.youtube.com/watch?v=FVUoo_WO_Ho
+
 https://www.youtube.com/watch?v=1LnX7_5y-ds&t=2s
 
 # Deployment Details
