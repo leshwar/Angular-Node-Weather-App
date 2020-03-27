@@ -5,7 +5,7 @@
 * __Back-end__: NodeJS, Typescript
 
 ## Application Documentation
-* [Click here to view] (https://github.com/leshwar/Angular-Node-Weather-App/blob/master/Angular-Node-Weather-App-Demo-Description.pdf)
+* [List 1](https://github.com/leshwar/Angular-Node-Weather-App/blob/master/Angular-Node-Weather-App-Demo-Description.pdf)
 
 ## Desktop Version Application Demo
 (Click image below to play demo)
