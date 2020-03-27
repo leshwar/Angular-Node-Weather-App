@@ -2,7 +2,7 @@
 
 ### Tech Stack Used:
 * __Front-end__: Angular, HTML, CSS, BootStrap, JavaScript
-* __Backend__: NodeJS, Typescript
+* __Back-end__: NodeJS, Typescript
 
 ## Application Documentation
 https://github.com/leshwar/Angular-Node-Weather-App/blob/master/Angular-Node-Weather-App-Demo-Description.pdf
